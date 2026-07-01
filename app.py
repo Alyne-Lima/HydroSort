@@ -1,16 +1,100 @@
 import streamlit as st
 import pandas as pd
 from io import BytesIO
+from PIL import Image
 from modelo_cpp_roc_sort import executar_modelo
 
+# CONFIGURAÇÃO DA PÁGINA
 st.set_page_config(
     page_title="HYDROSORT",
-    page_icon="📊",
-    layout="wide"
+    page_icon="💧",
+    layout="wide",
+    initial_sidebar_state="expanded"
 )
 
-st.title("🌊 HYDROSORT")
-st.caption("Hydrological Multicriteria Decision Support System under Uncertainty.")
+# CSS PERSONALIZADO
+st.markdown("""
+<style>
+
+.stApp{
+    background: linear-gradient(
+        180deg,
+        #F5F9FC 0%,
+        #EAF3FF 100%
+    ) !important;
+}
+
+h1{
+    color:#003B66 !important;
+    font-size:54px !important;
+    font-weight:800 !important;
+}
+
+h2{
+    color:#003B66 !important;
+    font-weight:700 !important;
+    border-bottom:2px solid #00A99D;
+    padding-bottom:8px;
+}
+
+div[data-baseweb="tab-list"]{
+    gap:25px;
+}
+
+div[data-testid="stDataFrame"]{
+    border-radius:15px;
+    box-shadow:0px 2px 10px rgba(0,0,0,0.1);
+}
+
+section[data-testid="stSidebar"]{
+    background: linear-gradient(
+        180deg,
+        #1779A6 0%,
+        #1E95B8 50%,
+        #29B8C3 100%
+    ) !important;
+
+    border-right: 2px solid #00A99D;
+}
+
+section[data-testid="stSidebar"] *{
+    color: white !important;
+    font-weight: 500;
+}
+
+</style>
+""", unsafe_allow_html=True)
+
+col1, col2 = st.columns([0.9,6])
+
+with col1:
+    st.image("logo_hydrosort.png", width=110)
+
+with col2:
+    st.markdown(
+        """
+        <h1 style='margin-bottom:0px;
+           color:#003B66;
+           font-size:60px;
+           font-weight:800'>
+        Hydro<span style='color:#00A99D'>Sort</span>
+        </h1>
+        """,
+        unsafe_allow_html=True
+    )
+
+    st.markdown(
+        """
+        <p style='font-size:18px;
+                  color:#4A4A4A;
+                  margin-top:-10px'>
+        Modelagem multicritério em grupo<br>
+        Classificação inteligente de vulnerabilidade
+        </p>
+        """,
+        unsafe_allow_html=True
+    )
+
 st.sidebar.header("Configurações")
 
 epsilon = st.sidebar.slider(
