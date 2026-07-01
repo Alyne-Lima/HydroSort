@@ -24,7 +24,8 @@ epsilon = st.sidebar.slider(
 categorias = []
 
 st.sidebar.markdown("---")
-st.sidebar.info("Carregue o arquivo único HYDROSORT_Input_Completo.xlsx.")
+st.sidebar.info("Carregue o arquivo de entrada do HYDROSORT ou utilize a planilha de demonstração."
+)
 
 abas = st.tabs([
     "1. Entrada de Dados",
