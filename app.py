@@ -89,7 +89,7 @@ with col2:
                   color:#4A4A4A;
                   margin-top:-10px'>
         Modelagem multicritério em grupo<br>
-        Classificação inteligente de vulnerabilidade
+        Classificação inteligente de vulnerabilidade hídrica
         </p>
         """,
         unsafe_allow_html=True
