@@ -68,7 +68,7 @@ section[data-testid="stSidebar"] *{
 col1, col2 = st.columns([0.9,6])
 
 with col1:
-    st.image("logo_hydrosort.png", width=110)
+    st.image("logo_hydrosort.png", width=170)
 
 with col2:
     st.markdown(
